@@ -2,10 +2,10 @@ package mundo;
 
 /**
  *
- * @author Manuel Alejandro Coral Lozano - Juan Sebastián Quintero Yoshioka
- *         Proyecto final - Algoritmos y programación II.
+ * @author Manuel Alejandro Coral Lozano - Juan Sebastiï¿½n Quintero Yoshioka
+ *         Proyecto final - Algoritmos y programaciï¿½n II.
  */
-public class InvasorCalamar extends Enemigo {
+public class InvasorCalamar extends Enemigo  {
 
 	// -----------------------------------------------------------------
 	// ---------------------------Constructor---------------------------
@@ -28,4 +28,6 @@ public class InvasorCalamar extends Enemigo {
 		setPuntosPorMuerte(30);
 		
 	}
+
+
 }

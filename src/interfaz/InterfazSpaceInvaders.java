@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import control.Teclado;
+import excepciones.ExceptionG;
 import excepciones.NicknameYaExisteException;
 import excepciones.PartidaYaExisteException;
 import hilos.HiloAnimacionEnemigos;
@@ -66,7 +67,7 @@ public class InterfazSpaceInvaders extends JFrame {
 		addKeyListener(imagen);
 		contenedor = this.getContentPane();
 		card.addLayoutComponent(imagen, "Inicio");
-		card.addLayoutComponent(panelMenu, "Menú");
+		card.addLayoutComponent(panelMenu, "MenÃº");
 		card.addLayoutComponent(panelNivel, "Juego");
 
 		contenedor.add(imagen);
@@ -92,8 +93,8 @@ public class InterfazSpaceInvaders extends JFrame {
 	 * @param nombre
 	 */
 	public void cambiarPanel(String nombre) {
-		if (nombre.equals("Menú")) {
-			card.show(contenedor, "Menú");
+		if (nombre.equals("Menï¿½")) {
+			card.show(contenedor, "Menï¿½");
 		} else if (nombre.equals("Juego")) {
 			card.show(contenedor, "Juego");
 		}
@@ -291,14 +292,20 @@ public class InterfazSpaceInvaders extends JFrame {
 	 * @param nickname
 	 */
 	public void reqAgregarJugador(String nombre, String nickname) {
+		ExceptionG exceptionG= new ExceptionG();
+	
 		try {
 			mundo.agregarJugador(nombre, nickname);
 			panelMenu.repaint();
 			actualizarJugadores();
 			actualizarJugadorActual(nickname);
-		} catch (NicknameYaExisteException | IOException e) {
+		} catch (IOException e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error al agregar el jugador",
 					JOptionPane.ERROR_MESSAGE);
+			
+		
+			
+			
 		}
 	}
 
@@ -312,7 +319,7 @@ public class InterfazSpaceInvaders extends JFrame {
 			mundo.setJugadorActual(actual);
 			panelMenu.repaint();
 		} else
-			JOptionPane.showMessageDialog(this, "Por favor cree algún jugador", "No existen jugadores",
+			JOptionPane.showMessageDialog(this, "Por favor cree algï¿½n jugador", "No existen jugadores",
 					JOptionPane.INFORMATION_MESSAGE);
 	}
 
@@ -360,7 +367,7 @@ public class InterfazSpaceInvaders extends JFrame {
 				panelMenu.repaint();
 				mundo.eliminarPartida();
 				actualizarPartidas();
-				cambiarPanel("Menú");	
+				cambiarPanel("Menï¿½");	
 				panelMenu.repaint();
 			}
 		} catch (IOException e) {
@@ -379,7 +386,7 @@ public class InterfazSpaceInvaders extends JFrame {
 			e.printStackTrace();
 		}
 		actualizarPartidas();
-		cambiarPanel("Menú");	
+		cambiarPanel("Menï¿½");	
 		panelMenu.repaint();
 	}
 

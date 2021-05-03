@@ -2,8 +2,13 @@ package mundo;
 
 /**
  *
- * @author Manuel Alejandro Coral Lozano - Juan Sebasti·n Quintero Yoshioka
- *         Proyecto final - Algoritmos y programaciÛn II.
+ * @author Manuel Alejandro Coral Lozano - Juan Sebasti√°n Quintero Yoshioka
+ *         Proyecto final - Algoritmos y programaci√≥
+ *         
+ *         
+ *         
+ *         
+ *         n II.
  */
 public class InvasorCangrejo extends Enemigo {
 

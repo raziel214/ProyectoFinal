@@ -7,13 +7,14 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import excepciones.ExceptionG;
 import excepciones.PartidaYaExisteException;
 
 /**
  *
  * 
- * @author Manuel Alejandro Coral Lozano - Juan Sebastián Quintero Yoshioka
- *         Proyecto final - Algoritmos y programación II.
+ * @author Manuel Alejandro Coral Lozano - Juan Sebastiï¿½n Quintero Yoshioka
+ *         Proyecto final - Algoritmos y programaciï¿½n II.
  */
 public class Partida implements Serializable {
 
@@ -72,7 +73,7 @@ public class Partida implements Serializable {
 	}
 
 	// -----------------------------------------------------------------
-	// -----------------------------Métodos-----------------------------
+	// -----------------------------Mï¿½todos-----------------------------
 	// -----------------------------------------------------------------
 
 	/**
@@ -156,9 +157,11 @@ public class Partida implements Serializable {
 	}
 
 	public void agregarPartida(Partida nodo) throws PartidaYaExisteException {
+		ExceptionG exceptionG= new ExceptionG();
+		
 
 		if (this.nombre.compareToIgnoreCase(nodo.nombre) == 0) {
-			throw new PartidaYaExisteException(nodo.nombre);
+			exceptionG.showpartida();
 		} else if (this.nombre.compareToIgnoreCase(nodo.nombre) > 0) {
 
 			if (partidaIzquierda == null) {

@@ -20,6 +20,12 @@ public class HiloAnimacionEnemigos extends Thread {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
+		
+		IImage calamar=new ImageCalamar();
+		IImage Cangrejo=new ImageCangrejo();
+		IImage Nave=new ImageNave();
+		
+		
 
 		while (interfaz.estaEnFuncionamiento()) {
 
