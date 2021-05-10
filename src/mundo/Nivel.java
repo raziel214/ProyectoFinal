@@ -9,6 +9,10 @@ import java.io.Serializable;
  */
 public class Nivel implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final int CANTIDAD_CALAMAR = 10;
 	public static final int CANTIDAD_PULPO = 20;
 	public static final int CANTIDAD_CANGREJO = 20;
@@ -17,184 +21,167 @@ public class Nivel implements Serializable {
 	// ----------------------------Atributos----------------------------
 	// -----------------------------------------------------------------
 
-	/**
-	 * 
-	 */
-	private String nivel;
+	public static class NivelBuilder{
+		
+		private Nivel nivel;
+		
+		public NivelBuilder() {
+			this.nivel = new Nivel();
+		}
+		
+		public Nivel build() {
+			return this.nivel;
+		}
+		
+		public NivelBuilder setVelocidadEnemigos(int velocidadEnemigos) {
+			this.nivel.setVelocidadEnemigos(velocidadEnemigos);
+			return this;
+		}
+
+		public NivelBuilder setVidaEnemigos(int vidaEnemigos) {
+			this.nivel.setVidaEnemigos(vidaEnemigos);
+			return this;
+		}
+
+		/**
+		 * 
+		 * @param nivel
+		 */
+		public NivelBuilder setNivel(String nivel) {
+			this.nivel.setNivel(nivel);
+			return this;
+		}
+
+		/**
+		 * 
+		 * @param enemigos
+		 */
+		public NivelBuilder setEnemigos(int enemigos) {
+			this.nivel.setEnemigos(enemigos);
+			return this;
+		}
+
+		/**
+		 * 
+		 * @param posXPrimerEnemigo
+		 */
+		public NivelBuilder setPosXPrimerEnemigo(int posXPrimerEnemigo) {
+			this.nivel.setPosXPrimerEnemigo(posXPrimerEnemigo);
+			return this;
+		}
+
+		/**
+		 * 
+		 * @param posYPrimerEnemigo
+		 */
+		public NivelBuilder setPosYPrimerEnemigo(int posYPrimerEnemigo) {
+			this.nivel.setPosYPrimerEnemigo(posYPrimerEnemigo);
+			return this;
+		}
+
+		/**
+		 * 
+		 * @param anchoEnemigos
+		 */
+		public NivelBuilder setAnchoEnemigos(int anchoEnemigos) {
+			this.nivel.setAnchoEnemigos(anchoEnemigos);
+			return this;
+		}
+
+		/**
+		 * 
+		 * @param altoEnemigos
+		 */
+		public NivelBuilder setAltoEnemigos(int altoEnemigos) {
+			this.nivel.setAltoEnemigos(altoEnemigos);
+			return this;
+		}
+
+	}
 	
-	/**
-	 * 
-	 */
+
+	private String nivel;
+
 	private int velocidadEnemigos;
 
-	/**
-	 * 
-	 */
 	private int enemigos;
-	
-	/**
-	 * 
-	 */
+
 	private int vidaEnemigos;
 
-	/**
-	 * 
-	 */
 	private int posXPrimerEnemigo;
 
-	/**
-	 * 
-	 */
 	private int posYPrimerEnemigo;
 
-	/**
-	 * 
-	 */
 	private int anchoEnemigos;
 
-	/**
-	 * 
-	 */
 	private int altoEnemigos;
 
-	// -----------------------------------------------------------------
-	// ---------------------------Constructor---------------------------
-	// -----------------------------------------------------------------
 
-	/**
-	 * 
-	 * @param nivel
-	 * @param enemigos
-	 * @param velocidadEnemigos
-	 * @param posXPrimerEnemigo
-	 * @param posYPrimerEnemigo
-	 * @param anchoEnemigos
-	 * @param altoEnemigos
-	 */
-	public Nivel(String nivel, int velocidad, int enemigos, int vidaEnemigos , int posXPrimerEnemigo, int posYPrimerEnemigo,
-			int anchoEnemigos, int altoEnemigos) {
-		this.nivel = nivel;
-		this.velocidadEnemigos = velocidad;
-		this.enemigos = enemigos;
-		this.vidaEnemigos = vidaEnemigos;
-		this.posXPrimerEnemigo = posXPrimerEnemigo;
-		this.posYPrimerEnemigo = posYPrimerEnemigo;
-		this.anchoEnemigos = anchoEnemigos;
-		this.altoEnemigos = altoEnemigos;
+	public static NivelBuilder nivelBuilder() {
+		return new NivelBuilder();
 	}
 
-	// -----------------------------------------------------------------
-	// -----------------------------Métodos-----------------------------
-	// -----------------------------------------------------------------
-
-	/**
-	 * 
-	 * @return
-	 */
 	public String getNivel() {
-		return this.nivel;
+		return nivel;
+	}
+
+	public void setNivel(String nivel) {
+		this.nivel = nivel;
 	}
 
 	public int getVelocidadEnemigos() {
 		return velocidadEnemigos;
 	}
 
-	public void setVelocidadEnemigos(int velocidadEnemigos) {
+	private void setVelocidadEnemigos(int velocidadEnemigos) {
 		this.velocidadEnemigos = velocidadEnemigos;
+	}
+
+	public int getEnemigos() {
+		return enemigos;
+	}
+
+	private void setEnemigos(int enemigos) {
+		this.enemigos = enemigos;
 	}
 
 	public int getVidaEnemigos() {
 		return vidaEnemigos;
 	}
 
-	public void setVidaEnemigos(int vidaEnemigos) {
+	private void setVidaEnemigos(int vidaEnemigos) {
 		this.vidaEnemigos = vidaEnemigos;
 	}
 
-	/**
-	 * 
-	 * @param nivel
-	 */
-	public void setNivel(String nivel) {
-		this.nivel = nivel;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public int getEnemigos() {
-		return this.enemigos;
-	}
-
-	/**
-	 * 
-	 * @param enemigos
-	 */
-	public void setEnemigos(int enemigos) {
-		this.enemigos = enemigos;
-	}
-
 	public int getPosXPrimerEnemigo() {
-		return this.posXPrimerEnemigo;
+		return posXPrimerEnemigo;
 	}
 
-	/**
-	 * 
-	 * @param posXPrimerEnemigo
-	 */
-	public void setPosXPrimerEnemigo(int posXPrimerEnemigo) {
+	private void setPosXPrimerEnemigo(int posXPrimerEnemigo) {
 		this.posXPrimerEnemigo = posXPrimerEnemigo;
 	}
 
 	public int getPosYPrimerEnemigo() {
-		return this.posYPrimerEnemigo;
+		return posYPrimerEnemigo;
 	}
 
-	/**
-	 * 
-	 * @param posYPrimerEnemigo
-	 */
-	public void setPosYPrimerEnemigo(int posYPrimerEnemigo) {
+	private void setPosYPrimerEnemigo(int posYPrimerEnemigo) {
 		this.posYPrimerEnemigo = posYPrimerEnemigo;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public int getAnchoEnemigos() {
 		return anchoEnemigos;
 	}
 
-	/**
-	 * 
-	 * @param anchoEnemigos
-	 */
-	public void setAnchoEnemigos(int anchoEnemigos) {
+	private void setAnchoEnemigos(int anchoEnemigos) {
 		this.anchoEnemigos = anchoEnemigos;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public int getAltoEnemigos() {
 		return altoEnemigos;
 	}
 
-	/**
-	 * 
-	 * @param altoEnemigos
-	 */
-	public void setAltoEnemigos(int altoEnemigos) {
+	private void setAltoEnemigos(int altoEnemigos) {
 		this.altoEnemigos = altoEnemigos;
-	}
-
-	/**
-	 * 
-	 */
-	public void definirNivel() {
-		
 	}
 }

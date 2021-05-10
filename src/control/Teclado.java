@@ -2,6 +2,9 @@ package control;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 import interfaz.InterfazSpaceInvaders;
 import mundo.NaveJugador;
@@ -14,6 +17,9 @@ import mundo.SpaceInvaders;
  */
 public class Teclado implements KeyListener {
 
+	
+	private final Set<Integer> pressedKeys = new HashSet<>();
+	
 	// -----------------------------------------------------------------
 	// ----------------------------Atributos----------------------------
 	// -----------------------------------------------------------------
@@ -38,27 +44,37 @@ public class Teclado implements KeyListener {
 
 	}
 
-	public void keyPressed(KeyEvent e) {
+	@Override
+	public synchronized void keyPressed(KeyEvent e) {
+		pressedKeys.add(e.getKeyCode());
+		if (actu.getEnFuncionamiento() && !pressedKeys.isEmpty()) {
 
-		if (actu.getEnFuncionamiento()) {
-			navesita = actu.getJugadorActual();
-			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			navesita = actu.getJugadorActual();		
+			int keyCode;
+			
+			for (Iterator<Integer> it = pressedKeys.iterator(); it.hasNext();) {
+			
+				keyCode = it.next();
+				
+				if (keyCode == KeyEvent.VK_SPACE) {
 
-				if (navesita.getDisparoUno() == null) {
-					navesita.disparar(interfaz.darPosActualJugador(), 410);
-					interfaz.startHiloJugador();
+					if (navesita.getDisparoUno() == null) {
+						navesita.disparar(interfaz.darPosActualJugador(), 410);
+						interfaz.startHiloJugador();
+					}
+				}
+
+				if (keyCode == KeyEvent.VK_LEFT) {
+					navesita.mover(-1);
+					interfaz.getPanelNivel().updateUI();
+				}
+
+				if (keyCode == KeyEvent.VK_RIGHT) {
+					navesita.mover(1);
+					interfaz.getPanelNivel().updateUI();
 				}
 			}
-
-			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-				navesita.mover(-1);
-				interfaz.getPanelNivel().updateUI();
-			}
-
-			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-				navesita.mover(1);
-				interfaz.getPanelNivel().updateUI();
-			}
+			
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
@@ -77,12 +93,11 @@ public class Teclado implements KeyListener {
 		}
 	}
 
-	/**
-	 * 
-	 */
-	public void keyReleased(KeyEvent e) {
+    @Override
+    public synchronized void keyReleased(KeyEvent e) {
+        pressedKeys.remove(e.getKeyCode());
 
-	}
+    }
 
 	/**
 	 * 

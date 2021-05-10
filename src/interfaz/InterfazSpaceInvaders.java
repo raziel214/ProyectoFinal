@@ -58,7 +58,7 @@ public class InterfazSpaceInvaders extends JFrame {
 
 	public InterfazSpaceInvaders() {
 
-		mundo = new SpaceInvaders(false);
+		mundo = SpaceInvaders.getInstance(false);
 
 		panelMenu = new PanelMenu(this);
 		panelNivel = new PanelNivel(mundo.getPartidaActual(), mundo, this);
@@ -93,8 +93,8 @@ public class InterfazSpaceInvaders extends JFrame {
 	 * @param nombre
 	 */
 	public void cambiarPanel(String nombre) {
-		if (nombre.equals("Men�")) {
-			card.show(contenedor, "Men�");
+		if (nombre.equals("Menú")) {
+			card.show(contenedor, "Menú");
 		} else if (nombre.equals("Juego")) {
 			card.show(contenedor, "Juego");
 		}

@@ -20,6 +20,8 @@ import excepciones.PartidaYaExisteException;
  */
 public class SpaceInvaders {
 
+	private static SpaceInvaders instance;
+	
 	// -----------------------------------------------------------------
 	// ---------------------------Asociaciones--------------------------
 	// -----------------------------------------------------------------
@@ -61,7 +63,7 @@ public class SpaceInvaders {
 	 * 
 	 * @param enFuncionamiento
 	 */
-	public SpaceInvaders(boolean enFuncionamiento) {
+	private SpaceInvaders(boolean enFuncionamiento) {
 
 		this.enFuncionamiento = enFuncionamiento;
 
@@ -81,6 +83,13 @@ public class SpaceInvaders {
 		}
 	}
 
+	public static SpaceInvaders getInstance(boolean enFuncionamiento) {
+        if (instance == null) {
+            instance = new SpaceInvaders(enFuncionamiento);
+        }
+        return instance;
+    }
+	
 	// -----------------------------------------------------------------
 	// -----------------------------M�todos-----------------------------
 	// -----------------------------------------------------------------

@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import excepciones.ExceptionG;
 import excepciones.PartidaYaExisteException;
 
+import mundo.enums.TipoEnemigoEnum;
+
 /**
  *
  * 
@@ -67,9 +69,10 @@ public class Partida implements Serializable {
 	 */
 	public Partida(String nombre) {
 		this.nombre = nombre;
-		nivel = new Nivel("1", 0, 0, 0, 0, 0, 0, 0);
-
-		//		inicializarEnemigos();
+		nivel = Nivel.nivelBuilder().setNivel("1").setVelocidadEnemigos(0)
+				.setEnemigos(0).setVidaEnemigos(0).setPosXPrimerEnemigo(0)
+				.setPosYPrimerEnemigo(0).setAnchoEnemigos(0)
+				.setAltoEnemigos(0).build();
 	}
 
 	// -----------------------------------------------------------------
@@ -258,9 +261,10 @@ public class Partida implements Serializable {
 		linea = br.readLine();
 		String[] arreglo = linea.split("\t");
 
-		this.nivel = new Nivel(nivelActual, velocidad, cantEnemigos,
-				vidaEnemigo, Integer.parseInt(arreglo[0]), Integer.parseInt(arreglo[1]),
-				Integer.parseInt(arreglo[2]), Integer.parseInt(arreglo[3]));
+		this.nivel = Nivel.nivelBuilder().setNivel(nivelActual).setVelocidadEnemigos(velocidad)
+				.setEnemigos(cantEnemigos).setVidaEnemigos(vidaEnemigo).setPosXPrimerEnemigo(Integer.parseInt(arreglo[0]))
+				.setPosYPrimerEnemigo(Integer.parseInt(arreglo[1])).setAnchoEnemigos(Integer.parseInt(arreglo[2]))
+				.setAltoEnemigos(Integer.parseInt(arreglo[3])).build();
 
 		inicializarEnemigos();
 
@@ -269,28 +273,19 @@ public class Partida implements Serializable {
 	}
 
 	public void inicializarEnemigos() {
-
+		
 		for (int i = 0; i < enemigos.length; i++) {
 			for (int j = 0; j < enemigos[i].length; j++) {
 
 				if (i == 0) {
-					enemigos[i][j] = new InvasorCalamar(nivel.getVelocidadEnemigos(), (j * nivel.getPosXPrimerEnemigo() + nivel.getPosXPrimerEnemigo())
-							, nivel.getPosYPrimerEnemigo(), nivel.getVidaEnemigos(), nivel.getAnchoEnemigos(), nivel.getAltoEnemigos(),
-							Enemigo.DERECHA, "./data/imagenes/Naves/s0.png", "./data/imagenes/Naves/s1.png");
+					enemigos[i][j] = EnemigoFactory.getInstance(nivel, j, i, TipoEnemigoEnum.INVASOR_CALAMAR);
 				} else if (i == 1 || i == 2) {
-
-					enemigos[i][j] = new InvasorCangrejo(nivel.getVelocidadEnemigos(), (j * nivel.getPosXPrimerEnemigo() + nivel.getPosXPrimerEnemigo()),
-							(i *  nivel.getPosYPrimerEnemigo() +  nivel.getPosYPrimerEnemigo()), nivel.getVidaEnemigos(), nivel.getAnchoEnemigos(), nivel.getAltoEnemigos(),
-							Enemigo.DERECHA, "./data/imagenes/Naves/p0.png", "./data/imagenes/Naves/p1.png");
-
+					enemigos[i][j] = EnemigoFactory.getInstance(nivel, j, i, TipoEnemigoEnum.INVASOR_CANGREJO);
 				} else if (i == 3 || i == 4) {
-					enemigos[i][j] = new InvasorPulpo(nivel.getVelocidadEnemigos(), (j * nivel.getPosXPrimerEnemigo() + nivel.getPosXPrimerEnemigo()),
-							(i * nivel.getPosYPrimerEnemigo() + nivel.getPosYPrimerEnemigo()), nivel.getVidaEnemigos(), nivel.getAnchoEnemigos(), nivel.getAltoEnemigos(),
-							Enemigo.DERECHA, "./data/imagenes/Naves/r0.png", "./data/imagenes/Naves/r1.png");
+					enemigos[i][j] = EnemigoFactory.getInstance(nivel, j, i, TipoEnemigoEnum.INVASOR_PULPO);
 				}
 			}
 		}
-
 	}
 
 	/**
