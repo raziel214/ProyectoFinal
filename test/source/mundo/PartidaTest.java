@@ -86,7 +86,10 @@ public class PartidaTest extends TestCase {
 	private void setUpEscenario6() {
 		partida = new Partida("prueba_NivelCompleto");
 		
-		partida.setNivel(new Nivel("1", 0, 0, 0, 0, 0, 0, 0));
+		partida.setNivel(Nivel.nivelBuilder().setNivel("1").setVelocidadEnemigos(0)
+				.setEnemigos(0).setVidaEnemigos(0).setPosXPrimerEnemigo(0)
+				.setPosYPrimerEnemigo(0).setAnchoEnemigos(0)
+				.setAltoEnemigos(0).build());
 		
 		partida.getNivel().setNivel("1");
 		

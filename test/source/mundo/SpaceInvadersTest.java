@@ -14,7 +14,7 @@ public class SpaceInvadersTest extends TestCase {
 	// AGREGAR JUGADOR
 	private void setUpEscenario1 () {
 		
-		space = new SpaceInvaders(true);
+		space = SpaceInvaders.getInstance(true);
 		jugadores = new ArrayList<>();
 		space.setJugadores(jugadores);
 		
@@ -23,7 +23,7 @@ public class SpaceInvadersTest extends TestCase {
 	// AGREGAR JUGADOR - BUSCAR JUGADOR - BUSCAR RAPIDO
 	private void setUpEscenario2 () {
 		
-		space = new SpaceInvaders(true);
+		space = SpaceInvaders.getInstance(true);
 		jugadores = new ArrayList<>();
 		
 		NaveJugador a = new NaveJugador("Manuel", "juga1");
@@ -43,7 +43,7 @@ public class SpaceInvadersTest extends TestCase {
 	// ORDENAR POR NICKNAME
 	private void setUpEscenario3 () {
 		
-		space = new SpaceInvaders(true);
+		space = SpaceInvaders.getInstance(true);
 		jugadores = new ArrayList<>();
 		
 		NaveJugador a = new NaveJugador("Manuel", "juga1");
