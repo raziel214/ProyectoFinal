@@ -7,7 +7,7 @@ public class ImageCalamar implements IImage{
 	@Override
 	public String showImage() {
 		// TODO Auto-generated method stub
-		route="./data/imagenes/Naves/p0.png";
+		route="./data/imagenes/Naves/s0.png";
 		return route;
 	}
 

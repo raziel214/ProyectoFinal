@@ -7,7 +7,7 @@ public class ImageNave implements IImage  {
 	@Override
 	public String showImage() {
 		// TODO Auto-generated method stub
-		route="./data/imagenes/Naves/s0.png";
+		route="./data/imagenes/Naves/r0.png";
 		return route;
 	}
 

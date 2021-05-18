@@ -22,19 +22,19 @@ public class HiloAnimacionEnemigos extends Thread {
 		// TODO Auto-generated method stub
 		
 		IImage calamar=new ImageCalamar();
-		IImage Cangrejo=new ImageCangrejo();
-		IImage Nave=new ImageNave();
-		
+		IImage cangrejo=new ImageCangrejo();
+		IImage nave=new ImageNave();
 		
 
 		while (interfaz.estaEnFuncionamiento()) {
 
 			if (enemigo instanceof InvasorCalamar) {
-				enemigo.setRutaImage("./data/imagenes/Naves/s0.png");
-			} else if (enemigo instanceof InvasorCangrejo) {
+				enemigo.setRutaImage(calamar.showImage());
+			} 
+			else if (enemigo instanceof InvasorCangrejo) {
 				enemigo.setRutaImage("./data/imagenes/Naves/p0.png");
 			} else {
-				enemigo.setRutaImage("./data/imagenes/Naves/r0.png");
+				enemigo.setRutaImage(nave.showImage());
 			}
 
 			try {

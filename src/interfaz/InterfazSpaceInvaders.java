@@ -67,7 +67,7 @@ public class InterfazSpaceInvaders extends JFrame {
 		addKeyListener(imagen);
 		contenedor = this.getContentPane();
 		card.addLayoutComponent(imagen, "Inicio");
-		card.addLayoutComponent(panelMenu, "Menú");
+		card.addLayoutComponent(panelMenu, "Men�");
 		card.addLayoutComponent(panelNivel, "Juego");
 
 		contenedor.add(imagen);
@@ -273,6 +273,8 @@ public class InterfazSpaceInvaders extends JFrame {
 	 * @param nombre
 	 */
 	public void reqCrearPartida(String nombre) {
+		 ExceptionG exceptionG= new ExceptionG();
+		
 		try {
 			mundo.crearPartida(nombre);
 			mundo.getPartidaActual().inicializarPartida();
@@ -282,6 +284,7 @@ public class InterfazSpaceInvaders extends JFrame {
 			mundo.iniciarPartida();
 			cambiarPanel("Juego");
 		} catch (PartidaYaExisteException | IOException e) {
+			exceptionG.showpartidaException();
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error al crear la partida", JOptionPane.ERROR_MESSAGE);
 		}
 	}
@@ -292,20 +295,18 @@ public class InterfazSpaceInvaders extends JFrame {
 	 * @param nickname
 	 */
 	public void reqAgregarJugador(String nombre, String nickname) {
-		ExceptionG exceptionG= new ExceptionG();
-	
+		
+		 ExceptionG exceptionG= new ExceptionG();
+		
 		try {
 			mundo.agregarJugador(nombre, nickname);
 			panelMenu.repaint();
 			actualizarJugadores();
 			actualizarJugadorActual(nickname);
-		} catch (IOException e) {
+		} catch (NicknameYaExisteException | IOException e) {
+			exceptionG.shownickNameException();
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error al agregar el jugador",
 					JOptionPane.ERROR_MESSAGE);
-			
-		
-			
-			
 		}
 	}
 

@@ -1,7 +1,6 @@
 package excepciones;
 
 public class ExceptionG {
-	
 	private IException monedasException;
 	private IException nickNameException;
 	private IException partidaException;
@@ -9,21 +8,19 @@ public class ExceptionG {
 	public ExceptionG() {
 		
 		monedasException = new MonedasInsuficientesException();
-		nickNameException =new NicknameYaExisteException();
-		partidaException = new PartidaYaExisteException();
+		nickNameException =new NicknameYaExisteException(null);
+		partidaException = new PartidaYaExisteException(null);
 	}
 	
 	  public void showmonedasException(){
-		  monedasException.NuevaException();
+		  monedasException.NuevaExcepcion();
 	    }
 	  public void shownickNameException(){
-		  nickNameException.NuevaException();
+		  nickNameException.NuevaExcepcion();
 	    }
-	  public void showpartida(){
-		  partidaException.NuevaException();
+	  public void showpartidaException(){
+		  partidaException.NuevaExcepcion();
 	    }
-	
-	
 	
 	
 

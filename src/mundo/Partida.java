@@ -164,7 +164,8 @@ public class Partida implements Serializable {
 		
 
 		if (this.nombre.compareToIgnoreCase(nodo.nombre) == 0) {
-			exceptionG.showpartida();
+			//exceptionG.showpartida();
+			throw new PartidaYaExisteException(nodo.nombre);
 		} else if (this.nombre.compareToIgnoreCase(nodo.nombre) > 0) {
 
 			if (partidaIzquierda == null) {
