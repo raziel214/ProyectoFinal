@@ -15,8 +15,8 @@ import excepciones.PartidaYaExisteException;
 /**
  * Clase principal del mundo que representa el juego.
  * 
- * @author Manuel Alejandro Coral Lozano - Juan Sebasti�n Quintero Yoshioka
- *         Proyecto final - Algoritmos y programaci�n II.
+ * @author Manuel Alejandro Coral Lozano - Juan Sebastián Quintero Yoshioka
+ *         Proyecto final - Algoritmos y programación II.
  */
 public class SpaceInvaders {
 
@@ -82,7 +82,7 @@ public class SpaceInvaders {
 	}
 
 	// -----------------------------------------------------------------
-	// -----------------------------M�todos-----------------------------
+	// -----------------------------Métodos-----------------------------
 	// -----------------------------------------------------------------
 
 	/**
@@ -175,9 +175,7 @@ public class SpaceInvaders {
 	 * @throws NicknameYaExisteException
 	 * @throws IOException
 	 */
-	public void agregarJugador(String nombre, String nickname) throws  IOException {
-		
-		ExceptionG exceptionG =new ExceptionG();
+	public void agregarJugador(String nombre, String nickname) throws NicknameYaExisteException, IOException {
 
 		if (buscarJugador(nickname) == null) {
 			NaveJugador agregar = new NaveJugador(nombre, nickname);
@@ -189,7 +187,7 @@ public class SpaceInvaders {
 			jugadorActual.setAlto(19);
 			serializarJugador();
 		} else
-			exceptionG.shownickNameException(); ;
+			throw new NicknameYaExisteException(nickname);
 
 	}
 

@@ -1,16 +1,16 @@
 package excepciones;
 
 public class NicknameYaExisteException extends Exception implements IException {
-	
-	private String Mesage;
 
-	@Override
-	public String NuevaException() {
-		// TODO Auto-generated method stub
-		Mesage="El Nick name ya existe";
-		return Mesage;
-		
+	public NicknameYaExisteException(String nombre) {
+		super("El jugador con el nombre " + nombre + " ya existe");
 	}
-
 	
+	@Override
+	public String NuevaExcepcion() {
+		String Mesage;
+		// TODO Auto-generated method stub
+		Mesage="El usuario Ingresado ya existe";
+		return Mesage;
+	}
 }

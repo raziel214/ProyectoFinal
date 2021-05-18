@@ -7,7 +7,7 @@ public class ImageCangrejo implements IImage {
 	@Override
 	public String showImage() {
 		// TODO Auto-generated method stub
-		route="./data/imagenes/Naves/r0.png";
+		route="./data/imagenes/Naves/p0.png";
 		return null;
 	}
 

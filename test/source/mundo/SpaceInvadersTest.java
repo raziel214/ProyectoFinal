@@ -68,7 +68,7 @@ public class SpaceInvadersTest extends TestCase {
 		
 		try {
 			space.agregarJugador("Yo1", "agre1");
-		} catch ( IOException e) {
+		} catch (NicknameYaExisteException | IOException e) {
 			fail("Lanza excepcion inesperada NicknameYaExisteException");
 		}
 		
@@ -78,7 +78,7 @@ public class SpaceInvadersTest extends TestCase {
 			space.agregarJugador("Yo2", "agre2");
 			space.agregarJugador("Yo2", "agre3");
 			space.agregarJugador("Yo2", "agre4");
-		} catch (IOException e) {
+		} catch (NicknameYaExisteException | IOException e) {
 			fail("Lanza excepcion inesperada NicknameYaExisteException");
 		}
 		
@@ -93,7 +93,7 @@ public class SpaceInvadersTest extends TestCase {
 		
 		try {
 			space.agregarJugador("Manuel", "juga5");
-		} catch ( IOException e) {
+		} catch (NicknameYaExisteException | IOException e) {
 			fail("Lanza excepcion inesperada NicknameYaExisteException");
 		}
 		
@@ -108,7 +108,7 @@ public class SpaceInvadersTest extends TestCase {
 		try {
 			space.agregarJugador("Manuel", "juga4");
 			fail("No lanza excepcion esperado NicknameYaExisteException");
-		} catch ( IOException e) {
+		} catch ( NicknameYaExisteException | IOException e) {
 		}
 		
 		assertEquals(4, jugadores.size());

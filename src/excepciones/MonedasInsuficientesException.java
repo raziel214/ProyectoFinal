@@ -1,15 +1,16 @@
 package excepciones;
 
-public class MonedasInsuficientesException  implements IException{
-	
+public class MonedasInsuficientesException extends Exception implements IException{
+
 	String Mesage;
 
-	@Override
-	public String NuevaException() {
+	
+	public String NuevaExcepcion() {
 		// TODO Auto-generated method stub
-		Mesage="No tiene monedas suficientes";
+		Mesage="El usuario No tiene monedas suficientes";
 		return Mesage;
-		
 	}
+	
+	
 
 }
