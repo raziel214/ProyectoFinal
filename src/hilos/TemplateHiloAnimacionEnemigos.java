@@ -30,7 +30,7 @@ public class TemplateHiloAnimacionEnemigos extends Hilo {
 				enemigo.setRutaImage(calamar.showImage());
 			} 
 			else if (enemigo instanceof InvasorCangrejo) {
-				enemigo.setRutaImage("./data/imagenes/Naves/p0.png");
+				enemigo.setRutaImage(cangrejo.showImage());
 			} else {
 				enemigo.setRutaImage(nave.showImage());
 			}
