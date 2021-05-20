@@ -26,10 +26,10 @@ public class SpaceInvadersTest extends TestCase {
 		space = SpaceInvaders.getInstance(true);
 		jugadores = new ArrayList<>();
 		
-		NaveJugador a = new NaveJugador("Manuel", "juga1");
-		NaveJugador b = new NaveJugador("Manuel", "juga2");
-		NaveJugador c = new NaveJugador("Manuel", "juga3");
-		NaveJugador d = new NaveJugador("Manuel", "juga4");
+		NaveJugador a = NaveJugador.getInstance("Manuel", "juga1");
+		NaveJugador b = NaveJugador.getInstance("Manuel", "juga2");
+		NaveJugador c = NaveJugador.getInstance("Manuel", "juga3");
+		NaveJugador d = NaveJugador.getInstance("Manuel", "juga4");
 		
 		jugadores.add(a);
 		jugadores.add(b);
@@ -46,10 +46,10 @@ public class SpaceInvadersTest extends TestCase {
 		space = SpaceInvaders.getInstance(true);
 		jugadores = new ArrayList<>();
 		
-		NaveJugador a = new NaveJugador("Manuel", "juga1");
-		NaveJugador b = new NaveJugador("Manuel", "juga2");
-		NaveJugador c = new NaveJugador("Manuel", "juga3");
-		NaveJugador d = new NaveJugador("Manuel", "juga4");
+		NaveJugador a = NaveJugador.getInstance("Manuel", "juga1");
+		NaveJugador b = NaveJugador.getInstance("Manuel", "juga2");
+		NaveJugador c = NaveJugador.getInstance("Manuel", "juga3");
+		NaveJugador d = NaveJugador.getInstance("Manuel", "juga4");
 		
 		jugadores.add(b);
 		jugadores.add(d);

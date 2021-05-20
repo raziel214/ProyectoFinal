@@ -2,6 +2,7 @@ package control;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -18,7 +19,11 @@ import mundo.SpaceInvaders;
 public class Teclado implements KeyListener {
 
 	
-	private final Set<Integer> pressedKeys = new HashSet<>();
+	private static Teclado instance;
+//	
+	private HistorialComandos historial;
+	
+//	private final Set<Integer> pressedKeys = new HashSet<>();
 	
 	// -----------------------------------------------------------------
 	// ----------------------------Atributos----------------------------
@@ -41,63 +46,61 @@ public class Teclado implements KeyListener {
 		interfaz = principal;
 		actu = actual;
 		navesita = actu.getJugadorActual();
-
+		historial = new HistorialComandos();
 	}
-
+	
+	public static Teclado getInstance(InterfazSpaceInvaders principal, SpaceInvaders actual) {
+		return instance == null ? new Teclado(principal, actual) : instance;
+	}
+	
 	@Override
 	public synchronized void keyPressed(KeyEvent e) {
-		pressedKeys.add(e.getKeyCode());
-		if (actu.getEnFuncionamiento() && !pressedKeys.isEmpty()) {
-
-			navesita = actu.getJugadorActual();		
+		historial.push(e);
+		if (actu.getEnFuncionamiento() && !historial.isEmpty()) {
+			
 			int keyCode;
 			
-			for (Iterator<Integer> it = pressedKeys.iterator(); it.hasNext();) {
+			for (Iterator<Integer> it = historial.getPressedKeys().iterator(); it.hasNext();) {
 			
 				keyCode = it.next();
 				
 				if (keyCode == KeyEvent.VK_SPACE) {
-
-					if (navesita.getDisparoUno() == null) {
-						navesita.disparar(interfaz.darPosActualJugador(), 410);
-						interfaz.startHiloJugador();
-					}
+					new KeyDisparar(Teclado.getInstance(interfaz, actu)).execute();
 				}
 
 				if (keyCode == KeyEvent.VK_LEFT) {
-					navesita.mover(-1);
-					interfaz.getPanelNivel().updateUI();
+					new KeyIrIzquierda(Teclado.getInstance(interfaz, actu)).execute();
 				}
 
 				if (keyCode == KeyEvent.VK_RIGHT) {
-					navesita.mover(1);
-					interfaz.getPanelNivel().updateUI();
+					new KeyIrDerecha(Teclado.getInstance(interfaz, actu)).execute();
 				}
 			}
-			
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-			interfaz.cerrar();
+			new KeySalir(Teclado.getInstance(interfaz, actu)).execute();
 		}
 		
 		if (e.getKeyCode() == KeyEvent.VK_P) {
-			if (interfaz.estaEnPausa()) {
-				interfaz.modificarFuncionamiento(true);
-				interfaz.cambiarPausa(false);
-				interfaz.iniciarTodosLosHilos();
-			} else {
-				interfaz.modificarFuncionamiento(false);
-				interfaz.cambiarPausa(true);
-			}
+			new KeyPausa(Teclado.getInstance(interfaz, actu)).execute();
 		}
 	}
 
+
     @Override
     public synchronized void keyReleased(KeyEvent e) {
-        pressedKeys.remove(e.getKeyCode());
+        historial.pop(e);
 
     }
+
+	public NaveJugador getNavesita() {
+		return navesita;
+	}
+
+	public InterfazSpaceInvaders getInterfaz() {
+		return interfaz;
+	}
 
 	/**
 	 * 

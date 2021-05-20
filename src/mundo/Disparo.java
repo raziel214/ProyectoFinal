@@ -16,8 +16,6 @@ public class Disparo implements Serializable {
 	private int posY;
 
 	public Disparo(int posX, int posY) {
-		// TODO Auto-generated constructor stub
-
 		this.posX = posX;
 		this.posY = posY;
 		impacto = false;

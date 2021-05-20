@@ -187,7 +187,7 @@ public class SpaceInvaders {
 	public void agregarJugador(String nombre, String nickname) throws NicknameYaExisteException, IOException {
 
 		if (buscarJugador(nickname) == null) {
-			NaveJugador agregar = new NaveJugador(nombre, nickname);
+			NaveJugador agregar = NaveJugador.getInstance(nombre, nickname);
 			jugadores.add(agregar);
 			jugadorActual = agregar;
 			jugadorActual.setPosInicialX(300);

@@ -5,20 +5,18 @@ import mundo.Enemigo;
 import mundo.InvasorCalamar;
 import mundo.InvasorCangrejo;
 
-public class HiloAnimacionEnemigos extends Thread {
+public class TemplateHiloAnimacionEnemigos extends Hilo {
 
 	Enemigo enemigo;
-	InterfazSpaceInvaders interfaz;
 	
-	public HiloAnimacionEnemigos(Enemigo invasores, InterfazSpaceInvaders principal) {
+	public TemplateHiloAnimacionEnemigos(Enemigo invasores, InterfazSpaceInvaders principal) {
 		// TODO Auto-generated constructor stub
-		
+		super(principal);
 		enemigo = invasores;
-		interfaz = principal;
 	}
 	
 	@Override
-	public void run() {
+	public void correrHilo() {
 		// TODO Auto-generated method stub
 		
 		IImage calamar=new ImageCalamar();
