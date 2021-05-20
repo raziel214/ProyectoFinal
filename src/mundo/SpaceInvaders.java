@@ -20,6 +20,8 @@ import excepciones.PartidaYaExisteException;
  */
 public class SpaceInvaders {
 
+	private static SpaceInvaders instance;
+	
 	// -----------------------------------------------------------------
 	// ---------------------------Asociaciones--------------------------
 	// -----------------------------------------------------------------
@@ -61,7 +63,7 @@ public class SpaceInvaders {
 	 * 
 	 * @param enFuncionamiento
 	 */
-	public SpaceInvaders(boolean enFuncionamiento) {
+	private SpaceInvaders(boolean enFuncionamiento) {
 
 		this.enFuncionamiento = enFuncionamiento;
 
@@ -81,6 +83,13 @@ public class SpaceInvaders {
 		}
 	}
 
+	public static SpaceInvaders getInstance(boolean enFuncionamiento) {
+        if (instance == null) {
+            instance = new SpaceInvaders(enFuncionamiento);
+        }
+        return instance;
+    }
+	
 	// -----------------------------------------------------------------
 	// -----------------------------Métodos-----------------------------
 	// -----------------------------------------------------------------
@@ -178,7 +187,7 @@ public class SpaceInvaders {
 	public void agregarJugador(String nombre, String nickname) throws NicknameYaExisteException, IOException {
 
 		if (buscarJugador(nickname) == null) {
-			NaveJugador agregar = new NaveJugador(nombre, nickname);
+			NaveJugador agregar = NaveJugador.getInstance(nombre, nickname);
 			jugadores.add(agregar);
 			jugadorActual = agregar;
 			jugadorActual.setPosInicialX(300);

@@ -3,20 +3,17 @@ package hilos;
 import interfaz.InterfazSpaceInvaders;
 import mundo.Enemigo;
 
-public class HiloEnemigos extends Thread {
+public class TemplateHiloEnemigos extends Hilo {
 
-	InterfazSpaceInvaders interfaz;
 	Enemigo enemigo;
 
-	public HiloEnemigos(Enemigo invasores, InterfazSpaceInvaders interfaz) {
-		// TODO Auto-generated constructor stub
-
+	public TemplateHiloEnemigos(Enemigo invasores, InterfazSpaceInvaders interfaz) {
+		super(interfaz);
 		enemigo = invasores;
-		this.interfaz = interfaz;
 	}
 
 	@Override
-	public void run() {
+	public void correrHilo() {
 		// TODO Auto-generated method stub
 		while (interfaz.estaEnFuncionamiento()) {
 

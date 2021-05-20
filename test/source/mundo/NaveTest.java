@@ -10,7 +10,7 @@ public class NaveTest extends TestCase {
 	// MOVER - DISPARAR
 	private void setUpEscenario1 () {
 		
-		nave = new NaveJugador("prueba_Mover", "test1");
+		nave = NaveJugador.getInstance("prueba_Mover", "test1");
 		nave.setVelocidad(10);
 		nave.setPosInicialX(300);
 		
@@ -19,7 +19,7 @@ public class NaveTest extends TestCase {
 	// ELIMINAR DISPARO
 	private void setUpEscenario2 (){
 		
-		nave = new NaveJugador("prueba_EliminarDisparo", "test2");
+		nave = NaveJugador.getInstance("prueba_EliminarDisparo", "test2");
 		disparo = new Disparo(20, 10);
 		
 		nave.setDisparoUno(disparo);
@@ -28,7 +28,7 @@ public class NaveTest extends TestCase {
 	// ESTA VIVA
 	private void setUpEscenario3 () {
 		
-		nave = new NaveJugador("prueba_EstaViva", "test3");
+		nave = NaveJugador.getInstance("prueba_EstaViva", "test3");
 		nave.setVida(3);
 		
 	}

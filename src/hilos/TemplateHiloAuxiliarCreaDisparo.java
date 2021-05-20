@@ -3,19 +3,17 @@ package hilos;
 import interfaz.InterfazSpaceInvaders;
 import mundo.Partida;
 
-public class HiloAuxiliarCreaDisparo extends Thread {
+public class TemplateHiloAuxiliarCreaDisparo extends Hilo {
 
 	private Partida partidaEnemigos;
-	private InterfazSpaceInvaders interfaz;
 
-	public HiloAuxiliarCreaDisparo(Partida a, InterfazSpaceInvaders principal) {
-		// TODO Auto-generated constructor stub
+	public TemplateHiloAuxiliarCreaDisparo(Partida a, InterfazSpaceInvaders principal) {
+		super(principal);
 		partidaEnemigos = a;
-		interfaz = principal;
 	}
 
 	@Override
-	public void run() {
+	public void correrHilo() {
 		// TODO Auto-generated method stub
 
 		while (interfaz.estaEnFuncionamiento()) {

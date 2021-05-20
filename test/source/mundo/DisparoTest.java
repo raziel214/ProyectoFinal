@@ -11,7 +11,7 @@ public class DisparoTest extends TestCase {
 	// GOLPEA ENEMIGO
 	private void setUpEscenario1 () {
 		
-		nave = new NaveJugador("JugadorPrueba1", "Test1");
+		nave = NaveJugador.getInstance("JugadorPrueba1", "Test1");
 		
 		enemigo = (InvasorCangrejo) new InvasorCangrejo(0, 100, 100, 0, 12, 0, 0, "", "");
 		
@@ -24,7 +24,7 @@ public class DisparoTest extends TestCase {
 	// NO GOLPEA ENEMIGO
 	private void setUpEscenario2 () {
 		
-		nave = new NaveJugador("JugadorPrueba2", "Test2");
+		nave = NaveJugador.getInstance("JugadorPrueba2", "Test2");
 		
 		enemigo = (InvasorCangrejo) new InvasorCangrejo(0, 200, 200, 0, 12, 0, 0, "", "");
 		
@@ -39,7 +39,7 @@ public class DisparoTest extends TestCase {
 		disparo = new Disparo(190, 0);
 		enemigo.setDisparoUno(disparo);
 		
-		nave = new NaveJugador("JugadorPrueba3", "Test3");
+		nave = NaveJugador.getInstance("JugadorPrueba3", "Test3");
 		nave.setPosInicialX(190);
 		nave.setPosIncialY(410);
 		

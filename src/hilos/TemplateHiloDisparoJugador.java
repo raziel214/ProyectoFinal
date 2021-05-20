@@ -5,25 +5,23 @@ import mundo.Enemigo;
 import mundo.NaveJugador;
 import mundo.Partida;
 
-public class HiloDisparoJugador extends Thread {
+public class TemplateHiloDisparoJugador extends Hilo {
 
 	private NaveJugador navesita;
-	private InterfazSpaceInvaders interfaz;
 	private Enemigo[][] enemigos;
 	private Partida actual;
 
-	public HiloDisparoJugador(NaveJugador a, InterfazSpaceInvaders b, Enemigo[][] c, Partida d) {
+	public TemplateHiloDisparoJugador(NaveJugador a, InterfazSpaceInvaders b, Enemigo[][] c, Partida d) {
 		// TODO Auto-generated constructor stub
-
+		super(b);
 		navesita = a;
-		interfaz = b;
 		enemigos = c;
 		actual = d;
 
 	}
 
 	@Override
-	public void run() {
+	public void correrHilo() {
 		// TODO Auto-generated method stub
 
 		while (navesita.getDisparoUno() != null && !navesita.getDisparoUno().getImpacto()) {

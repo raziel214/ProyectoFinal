@@ -18,6 +18,8 @@ public class NaveJugador extends Nave {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private static NaveJugador instance;
+
 	// -----------------------------------------------------------------
 	// ----------------------------Atributos----------------------------
 	// -----------------------------------------------------------------
@@ -56,12 +58,16 @@ public class NaveJugador extends Nave {
 	// ---------------------------Constructor---------------------------
 	// -----------------------------------------------------------------
 
+	public static NaveJugador getInstance(String nombre, String nickname) {
+		return instance == null ? new NaveJugador(nombre, nickname) : instance;
+	}
+	
 	/**
 	 * 
 	 * @param pNombre
 	 * @param pDirectorio
 	 */
-	public NaveJugador(String nombre, String nickname) {
+	private NaveJugador(String nombre, String nickname) {
 		super();
 		partidaRaiz = null;
 		this.posInicialX = 320;
@@ -215,7 +221,6 @@ public class NaveJugador extends Nave {
 	}
 
 	public void disparar (int posX, int posY) {
-
 		if (disparoUno == null) {
 			cantidadDisparos++;
 			disparoUno = new Disparo(posX, posY);

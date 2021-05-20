@@ -14,14 +14,14 @@ public class PartidaTest extends TestCase {
 	// AGREGAR PARTIDA - BUSCAR PARTIDA
 	private void setUpEscenario1(){
 		partida = new Partida("prueba_AgregarPartida_BuscarPartida");
-		jugador = new NaveJugador("Manuel", "Escenario1");
+		jugador = NaveJugador.getInstance("Manuel", "Escenario1");
 	}
 	
 	// AGREGAR PARTIDA - BUSCAR PARTIDA
 	private void setUpEscenario2() {
 		
 		partida = new Partida("test2");
-		jugador = new NaveJugador("Manuel", "Escenario2");
+		jugador = NaveJugador.getInstance("Manuel", "Escenario2");
 		Partida p1 = new Partida("test2.1");
 		Partida p2 = new Partida("test2.2");
 		Partida p3 = new Partida("test2.3");
@@ -86,7 +86,10 @@ public class PartidaTest extends TestCase {
 	private void setUpEscenario6() {
 		partida = new Partida("prueba_NivelCompleto");
 		
-		partida.setNivel(new Nivel("1", 0, 0, 0, 0, 0, 0, 0));
+		partida.setNivel(Nivel.nivelBuilder().setNivel("1").setVelocidadEnemigos(0)
+				.setEnemigos(0).setVidaEnemigos(0).setPosXPrimerEnemigo(0)
+				.setPosYPrimerEnemigo(0).setAnchoEnemigos(0)
+				.setAltoEnemigos(0).build());
 		
 		partida.getNivel().setNivel("1");
 		
