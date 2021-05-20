@@ -98,12 +98,12 @@ public class DialogoCrearPartida extends JDialog implements ActionListener {
 
 		nombre = new JLabel("Ingrese el nombre    de");
 		nombre.setForeground(Color.YELLOW);
-		nombre.setFont(new Font("ArcadeClassic", Font.PLAIN, 33));
+		nombre.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		nombre.setBounds(10, 30, 350, 20);
 
 		nombre1 = new JLabel("la    partida");
 		nombre1.setForeground(Color.YELLOW);
-		nombre1.setFont(new Font("ArcadeClassic", Font.PLAIN, 33));
+		nombre1.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		nombre1.setBounds(10, 55, 240, 20);
 
 		txtNombre = new JTextField();

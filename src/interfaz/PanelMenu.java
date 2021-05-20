@@ -177,7 +177,7 @@ public class PanelMenu extends JPanel implements ActionListener {
 		// Título del juego: "SPACE INVADERS"
 		JLabel space = new JLabel("SPACE INVADERS");
 		space.setForeground(Color.WHITE);
-		space.setFont(new Font("ArcadeClassic", Font.PLAIN, 74));
+		space.setFont(new Font("ArcadeClassic", Font.PLAIN, 54));
 		space.setBounds(5, 75, 560, 80);
 		add(space);
 
@@ -193,11 +193,11 @@ public class PanelMenu extends JPanel implements ActionListener {
 
 		// Item1 de Menu Jugar
 		menuCrearPartida = new JMenuItem("CREAR PARTIDA");
-		menuCrearPartida.setFont(new Font("ArcadeClassic", Font.PLAIN, 30));
+		menuCrearPartida.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 
 		// Item2 de Menu Jugar
 		menuCargarPartida = new JMenuItem("CARGAR PARTIDA");
-		menuCargarPartida.setFont(new Font("ArcadeClassic", Font.PLAIN, 30));
+		menuCargarPartida.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 
 		// Añadir los action listener a los item's de Menu Jugar
 		menuCrearPartida.addActionListener(this);
@@ -214,11 +214,11 @@ public class PanelMenu extends JPanel implements ActionListener {
 
 		// Item1 de Menu Jugador
 		menuNuevoJugador = new JMenuItem("NUEVO JUGADOR");
-		menuNuevoJugador.setFont(new Font("ArcadeClassic", Font.PLAIN, 30));
+		menuNuevoJugador.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 
 		// Item2 de Menu Jugador
 		menuSeleccionarJugador = new JMenuItem("SELECCIONAR JUGADOR");
-		menuSeleccionarJugador.setFont(new Font("ArcadeClassic", Font.PLAIN, 30));
+		menuSeleccionarJugador.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 
 		// Añadir los action listener a los Item's de Menu Jugador
 		menuNuevoJugador.addActionListener(this);
@@ -237,7 +237,7 @@ public class PanelMenu extends JPanel implements ActionListener {
 		labLoginRapido = new JLabel("LOGIN RAPIDO");
 		labLoginRapido.setForeground(Color.WHITE);
 		labLoginRapido.setBounds(10, 300, 250, 23);
-		labLoginRapido.setFont(new Font("ArcadeClassic", Font.PLAIN, 40));
+		labLoginRapido.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		add(labLoginRapido);
 		labLoginRapido.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
@@ -258,7 +258,7 @@ public class PanelMenu extends JPanel implements ActionListener {
 		// Boton Open Menu Jugar
 		labOpenMenuJugar = new JLabel("JUGAR");
 		labOpenMenuJugar.setBounds(10, 240, 110, 23);
-		labOpenMenuJugar.setFont(new Font("ArcadeClassic", Font.PLAIN, 40));
+		labOpenMenuJugar.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		labOpenMenuJugar.setForeground(Color.WHITE);
 		labOpenMenuJugar.setAlignmentX(RIGHT_ALIGNMENT);
 		labOpenMenuJugar.addMouseListener(new MouseAdapter() {
@@ -271,7 +271,7 @@ public class PanelMenu extends JPanel implements ActionListener {
 
 		// Boton Open Menu Jugador
 		labOpenMenuJugador = new JLabel("JUGADOR");
-		labOpenMenuJugador.setFont(new Font("ArcadeClassic", Font.PLAIN, 40));
+		labOpenMenuJugador.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		labOpenMenuJugador.setBounds(10, 270, 190, 23);
 		labOpenMenuJugador.setForeground(Color.WHITE);
 		labOpenMenuJugador.setAlignmentX(RIGHT_ALIGNMENT);
@@ -286,7 +286,7 @@ public class PanelMenu extends JPanel implements ActionListener {
 		// JLabel de los mejores puntajes
 		labMejoresPuntajes = new JLabel("MEJORES PUNTAJES");
 		labMejoresPuntajes.setForeground(Color.WHITE);
-		labMejoresPuntajes.setFont(new Font("ArcadeClassic", Font.PLAIN, 40));
+		labMejoresPuntajes.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		labMejoresPuntajes.setBounds(10, 360, 340, 23);
 		add(labMejoresPuntajes);
 		labMejoresPuntajes.addMouseListener(new MouseListener() {
@@ -325,7 +325,7 @@ public class PanelMenu extends JPanel implements ActionListener {
 		// JLabel con las intrucciones
 		labInstrucciones = new JLabel("INSTRUCCIONES");
 		labInstrucciones.setForeground(Color.WHITE);
-		labInstrucciones.setFont(new Font("ArcadeClassic", Font.PLAIN, 40));
+		labInstrucciones.setFont(new Font("ArcadeClassic", Font.PLAIN, 20));
 		labInstrucciones.setBounds(10, 330, 300, 23);
 		labInstrucciones.addMouseListener(new MouseListener() {
 
